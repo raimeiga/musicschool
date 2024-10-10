@@ -41,6 +41,7 @@
     </div>
 </section>
 
+
 <section id="message" class="message bg-red">
     <div class="content-area content-area--message">
         <h2 class="c-head-middle c-head-middle--white">音楽業界初！<br>収益化までサポートする<br class="pc-none">ミュージックスクール</h2>
