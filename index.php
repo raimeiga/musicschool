@@ -7,7 +7,6 @@
     </p>
 </a>
 
-
 <?php get_template_part('template-parts/contact-button'); ?>
 
 <section id="main" class="main">
