@@ -1,0 +1,81 @@
+@use "../../foundation/variable";
+
+.reason {
+    .c-head-middle {
+        margin-bottom: 34px;
+    }
+    &-block {
+        display: flex;
+        margin-bottom: 48px;
+        &__img {
+            width: 40%;
+            max-width: 350px;
+            height: auto;
+            flex-shrink: 0;
+        }
+        &__head {
+            font-size: 2.2rem;
+            font-weight: bold;
+            padding-bottom: 15px;
+            padding-left: 50px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid variable.$red;
+            box-sizing: border-box;
+        }
+        &__text {
+            font-size: 1.8rem;
+            line-height: 1.8;
+            padding-left: 50px;
+        }
+        &--bottom {
+            margin-bottom: 0;
+        }
+    }
+}
+.content-area--reason {
+    padding-top: 60px;
+    padding-bottom: 66px;
+}
+
+@media screen and (max-width:767px) {
+    .reason {
+        .c-head-middle {
+            margin-bottom: 42px;
+        }
+        &-block {
+            display: block;
+            margin-bottom: 46px;
+            &__img {
+                position: relative;
+                width: 100%;
+                max-width: none;
+                height: auto;
+                padding-top: 59.7%;
+                margin-bottom: 25px;
+                img {
+                    object-fit: cover;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            &__head {
+                font-size: 2rem;
+                line-height: 1.5;
+                margin-bottom: 13px;
+                padding-bottom: 13px;
+                padding-left: 0;
+            }
+            &__text {
+                font-size: 1.6rem;
+                padding-left: 0;
+            }
+        }
+    }
+    .content-area--reason {
+        padding-top: 42px;
+        padding-bottom: 44px;
+    }
+}

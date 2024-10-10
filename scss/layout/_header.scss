@@ -1,0 +1,155 @@
+@use "../foundation/variable";
+
+.header {
+    display: flex;
+    align-items: center;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 30px;
+    &-logo {
+        margin-right: 32px;
+        width: 192px;
+        height: 80px;
+        img {
+            height: 80px;
+        }
+    }
+    &-nav {
+        width: 100%;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        &-list {
+            display: flex;
+            height: 80px;
+            list-style: none;
+            align-items: center;
+            &__item {
+                margin-right: 33px;
+                a:not(.c-button--head) {
+                    display: block;
+                    line-height: 80px;
+                    color: #000;
+                    text-decoration: none;
+                    font-size: 1.7rem;
+                    font-weight: bold;
+                    line-height: 80px;
+                    display: block;
+                    position: relative;
+                    &:hover::after {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        bottom: 24px;
+                        width: 100%;
+                        height: 1px;
+                        background: #000;
+                    }
+                }
+            }
+        }
+        &-open {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width:767px) {
+    .header {
+        height: 50px;
+        padding: 0 20px;
+        position: fixed;
+        top: 0;
+        z-index: 9999;
+        background: #fff;
+        width: 100%;
+        &-logo {
+            margin-right: 0;
+            width: 208px;
+            height: 50px;
+            img {
+                height: 50px;
+            }
+        }
+        &-nav {
+            position: fixed;
+            max-width: 300px;
+            height: auto;
+            top: 50px;
+            right: -100%;
+            z-index: 9997;
+            transition: right 0.4s;
+            &.open {
+                right: 0;
+            }
+            &-list {
+                display: block;
+                height: auto;
+                width: 100%;
+                &__item {
+                    margin-right: 0;
+                    a:not(.c-button--head) {
+                        background: variable.$red;
+                        color: #fff;
+                        font-size: 1.8rem;
+                        padding: 20px;
+                        display: block;
+                        line-height: inherit;
+                        &:hover {
+                            opacity: 1;
+                            background: #000;
+                            padding-bottom: 20px;
+                            &::after {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+            &-open {
+                display: block;
+                background: variable.$red;
+                width: 71px;
+                height: 50px;
+                box-sizing: border-box;
+                border: none;
+                outline: none;
+                position: fixed;
+                right: 0;
+                top: 0;
+                padding: 11px 20px;
+                cursor: pointer;
+                z-index: 9998;
+                &-border, &-border::before, &-border::after {
+                    position: absolute;
+                    transition: transform .4s;
+                    height: 4px;
+                    width: 32px;
+                    border-radius: 2px;
+                    background: #fff;
+                    display: block;
+                    content: '';
+                    cursor: pointer;
+                    z-index: 9999;
+                    top: 12px;
+                }
+                &-border::before {
+                    top: 12px;
+                }
+                &-border::after {
+                    top: 24px;
+                }
+                &.active &-border {
+                    transform: translateY(12px) rotate(-45deg);
+                }
+                &.active &-border::before {
+                    transform: translateY(-12px) rotate(45deg);
+                    opacity: 0;
+                }
+                &.active &-border::after {
+                    transform: translateY(-24px) rotate(90deg);
+                }
+            }
+        }
+    }
+}

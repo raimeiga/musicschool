@@ -1,0 +1,137 @@
+.voice {
+    .c-head-middle {
+        margin-bottom: 44px;
+    }
+    &-flex-area {
+        position: relative;
+        width: 100%;
+        margin: 0 auto;
+        &__arrow {
+            position: absolute;
+            display: inline-block;
+            top: 124.5px;
+            &--l {
+                left: -42px;
+            }
+            &--r {
+                right: -42px;
+            }
+        }
+    }
+    &-block {
+        margin: 0 12px;
+        &__anchor {
+            text-decoration: none;
+        }
+        &__img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 14px;
+            img {
+                object-fit: cover;
+            }
+        }
+        &__head {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 14px;
+        }
+        &__text {
+            font-size: 1.8rem;
+            line-height: 1.6;
+            color: #fff;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+        }
+    }
+    .slick-arrow{
+        z-index:2!important;
+        width:28px!important;
+        height:40px!important;
+    }
+    .slick-arrow:before{
+        content:""!important;
+        width: 100%!important;
+        height: 100%!important;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .slick-next {
+        top: 41%;
+        right: -32px;
+        &:before{
+            background-image: url(../images/top/arrow-r.png)!important;
+            background-size: contain!important;
+            background-repeat: no-repeat;
+        }
+    }
+    .slick-prev{
+        top: 41%;
+        left: -32px;
+        &:before{
+            background-image: url(../images/top/arrow-l.png)!important;
+            background-size: contain!important;
+            background-repeat: no-repeat;
+        }
+    }
+}
+.content-area--voice {
+    padding-top: 60px;
+    padding-bottom: 66px;
+}
+
+@media screen and (max-width:767px) {
+    .voice {
+        &-flex-area {
+            display: block;
+        }
+        &-block {
+            max-width: none;
+            margin: 0;
+            &__img {
+                position: relative;
+                width: 100%;
+                height: auto;
+                margin-bottom: 25px;
+                &:after {
+                    content:'';
+                    display: block;
+                    padding-top: 60%;
+                }
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        .slick-arrow:before {
+            opacity: 1;
+        }
+        .slick-next {
+            top: 43%;
+            right: 5px;
+        }
+        .slick-prev {
+            top: 43%;
+            left: 5px;
+        }
+        .slick-next:before{
+            background-image: url(../images/top/arrow-r-sp.png)!important;
+        }
+        .slick-prev:before{
+            background-image: url(../images/top/arrow-l-sp.png)!important;
+        }
+    }
+    .content-area--voice {
+        padding-top: 44px;
+        padding-bottom: 56px;
+    }
+}

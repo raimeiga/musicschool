@@ -1,0 +1,11 @@
+.content-area--blog-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width:767px) {
+    .content-area--blog-details {
+        flex-wrap: wrap;
+        padding: 50px 0 196px;
+    }
+}

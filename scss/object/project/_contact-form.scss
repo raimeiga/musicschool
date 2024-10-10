@@ -1,0 +1,120 @@
+@use "../../foundation/variable";
+
+.headline--contact {
+    background-image: url(../images/contact/headline-contact-form.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-form {
+    &__item {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        &--bottom {
+            margin-top: 50px;
+            margin-bottom: 0;
+        }
+    }
+    &__label {
+        font-size: 2rem;
+        margin-top: 10px;
+    }
+    &__input {
+        height: 40px;
+        border: 0.5px solid #000;
+        width: 80%;
+        max-width: 711px;
+        font-size: 15px;
+        padding: 0 20px;
+        box-sizing: border-box;
+        &::placeholder {
+            color: rgb(178,178,178);
+        }
+    }
+    &-check-area {
+        width: 80%;
+        max-width: 711px;
+    }
+    &-check-area__item {
+        display: block;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        cursor: pointer;
+        padding: 0 40px;
+        position: relative;
+        &--bottom {
+            margin-bottom: 0;
+        }
+        &::before {
+            content: '';
+            background: #fff;
+            border: 1px solid #231815;
+            display: block;
+            width: 20px;
+            height: 20px;
+            left: 0;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &::after {
+            content: '';
+            border-right: 3px solid variable.$red;
+            border-bottom: 3px solid variable.$red;
+            display: block;
+            height: 12px;
+            left: 7px;
+            margin-top: -9px;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            transform: rotate(45deg);
+            width: 5px;
+        }
+    }
+    &__textarea {
+        height: 300px;
+        padding: 20px;
+    }
+}
+.content-area--contact-form {
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width:767px) {
+    .contact-form {
+        &__item {
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+            &--bottom {
+                margin-bottom: 0;
+            }
+        }
+        &__label {
+            width: 100%;
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+        &__input {
+            width: 100%;
+        }
+        &__textarea {
+            height: 190px;
+        }
+        &-check-area {
+            width: 100%;
+            &__item {
+                font-size: 1.6rem;
+                &:not(:last-child) {
+                    margin-bottom: 22px;
+                }
+            }
+        }
+    }
+    .content-area--contact-form {
+        margin-bottom: 14px;
+        padding: 40px 0;
+    }
+}

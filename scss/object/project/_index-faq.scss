@@ -1,0 +1,109 @@
+@use "../../foundation/variable";
+
+.faq {
+    .c-head-middle {
+        margin-bottom: 50px;
+    }
+    &-list {
+        list-style: none;
+        &__item {
+            border-bottom: 0.5px solid #000;
+            &--top {
+                border-top: 0.5px solid #000;
+            }
+        }
+        &__question {
+            font-size: 1.7rem;
+            line-height: 1.8;
+            padding: 24px 0;
+            color:#000;
+            display: flex;
+            position: relative;
+            align-items: center;
+            cursor: pointer;
+            &-marker {
+                color: #fff;
+                font-size: 2rem;
+                font-weight: bold;
+                margin: 0 20px;
+                background: #000;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                text-align: center;
+            }
+            &-img {
+                width: 13.6px;
+                margin-left: auto;
+                margin-right: 28px;
+                transition: transform .4s;
+            }
+        }
+        &__answer {
+            display: flex;
+            font-size: 1.7rem;
+            padding: 24px 0;
+            font-weight: bold;
+            color: variable.$red;
+            line-height: 1.8;
+            background: rgba(203, 0, 0, 0.1);
+            align-items: center;
+            cursor: pointer;
+            &-marker {
+                color: #fff;
+                font-size: 2rem;
+                font-weight: bold;
+                margin: 0 20px;
+                background: variable.$red;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                text-align: center;
+            }
+        }
+    }
+}
+.content-area--faq {
+    padding: 50px 30px 70px;
+}
+
+@media screen and (max-width:767px) {
+    .content-area--faq {
+        padding: 20px 0 50px;
+    }
+    .faq {
+        &-list {
+            &__question {
+                font-size: 1.6rem;
+                &-marker {
+                    margin-left: 10px;
+                    margin-right: 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                &-text {
+                    flex: 1;
+                    margin-right: 14px;
+                }
+                &-img {
+                    margin-right: 14px;
+                }
+            }
+            &__answer {
+                font-size: 1.6rem;
+                &-marker {
+                    margin-left: 10px;
+                    margin-right: 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                &-text {
+                    flex: 1;
+                    margin-right: 14px;
+                }
+            }
+        }
+    }
+}

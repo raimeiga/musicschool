@@ -1,0 +1,19 @@
+.u-item-bottom {
+    margin-bottom: 0 !important;
+}
+.u-flex {
+    display: flex !important;
+}
+.u-transform-180 {
+    transform: rotate(180deg);
+}
+// フェードイン
+.u-fadein {
+    opacity: 0;
+    transform : translate(0, 50px);
+    transition : all 1s;
+}
+.u-fadein.reach{
+    opacity: 1;
+    transform: translate(0, 0);
+}

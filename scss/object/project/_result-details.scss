@@ -1,0 +1,10 @@
+.content-area--result-details {
+    padding-top: 70px;
+    padding-bottom: 157px;
+}
+
+@media screen and (max-width:767px) {
+    .content-area--result-details {
+        padding: 50px 0 166px;
+    }
+}

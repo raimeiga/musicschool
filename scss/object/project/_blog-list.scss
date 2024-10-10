@@ -1,0 +1,14 @@
+.headline--blog-list {
+    background-image: url(../images/blog/headline-blog-list.png);
+    background-size: cover;
+    background-position: center;
+}
+.content-area-blog-pager {
+    padding: 0 0 210px;
+}
+
+@media screen and (max-width:767px) {
+    .content-area-blog-pager {
+        padding: 20px 0 196px;
+    }
+}

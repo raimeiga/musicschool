@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | きたむらミュージックスクール</title>
+    <meta name="description" content="きたむらミュージックスクール公式ホームページのお問い合わせページです。">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <!-- slick -->
+    <link rel="stylesheet" type="text/css" href="./slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css"/>
+    <script type="text/javascript" src="./slick/slick.min.js"></script>
+    <!-- original-->
+    <script type="text/javascript" src="./js/script.js"></script>
+
+    <!-- style -->
+    <link rel="stylesheet"  type="text/css" href="./css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <button class="header-nav-open">
+        <span class="header-nav-open-border"></span>
+    </button>
+    <a href="./index.html">
+        <p class="header-logo sp-none"><img src="./images/common/logo.svg" alt="きたむらミュージックスクール"></p>
+        <p class="header-logo pc-none"><img src="./images/common/logo-sp.svg" alt="きたむらミュージックスクール"></p>
+    </a>
+    <nav class="header-nav" aria-label="ヘッダーナビゲーション">
+        <ul class="header-nav-list">
+            <li class="header-nav-list__item">
+                <a href="./plan.html" class="header-nav-list__item-text">料金</a>
+            </li>
+            <li class="header-nav-list__item">
+                <a href="./blog-list.html" class="header-nav-list__item-text">ブログ</a>
+            </li>
+            <li class="header-nav-list__item">
+                <a href="./result-list.html" class="header-nav-list__item-text">卒業実績</a>
+            </li>
+        </ul>
+        <a href="./contact-form.html" class="c-button c-button--head">お問い合わせ</a>
+    </nav>
+</header>
+
+<a href="#" class="c-arrow">
+    <p class="c-arrow__img">
+        <img src="./images/common/arrow-t.svg" alt="△">
+    </p>
+</a>
+
+<div class="c-headline headline--contact">
+    <p class="c-headline-text">お問い合わせ</p>
+</div>
+
+<div class="c-breadcrumbs">
+    <div class="c-breadcrumbs-text-area">
+        <a href="index.html" class="c-breadcrumbs-text">ホーム</a>
+        <p class="c-breadcrumbs-sign">&#62;</p>
+        <p class="c-breadcrumbs-text">お問い合わせ</p>
+    </div>
+</div>
+
+<section class="contact-form c-message">
+    <div class="content-area content-area--contact-form">
+        <p class="c-message-description">当校に関するご質問・ご相談・資料請求は下記のフォームからお気軽にお問い合わせください。<br>通常３営業日以内にメールにてご連絡させていただきます。</p>
+        <form action="./contact-send.html">
+            <div class="contact-form__item">
+                <label class="contact-form__label">会社名</label>
+                <input type="text" name="" id="" class="contact-form__input" placeholder="きたむらミュージックスクール">
+            </div>
+            <div class="contact-form__item">
+                <label class="contact-form__label">お名前</label>
+                <input type="text" name="" id="" class="contact-form__input" placeholder="北村　翔平">
+            </div>
+            <div class="contact-form__item">
+                <label class="contact-form__label">メールアドレス</label>
+                <input type="email" name="" id="" class="contact-form__input" placeholder="info@kitamura.musicschool.jp">
+            </div>
+            <div class="contact-form__item">
+                <label class="contact-form__label">電話番号</label>
+                <input type="tel" name="" id="" class="contact-form__input" placeholder="090-1234-5678">
+            </div>
+            <div class="contact-form__item">
+                <label class="contact-form__label">目　的<br class="sp-none">(複数選択可)</label>
+                <div class="contact-form-check-area">
+                    <input type="checkbox" id="check-01" name="check-01" value="プランについてのお問い合わせ" class="contact-form-check">
+                    <label class="contact-form-check-area__item" for="check-01">プランについてのお問い合わせ</label>
+                    <input type="checkbox" id="check-02" name="check-02" value="ヒアリングのご予約" class="contact-form-check">
+                    <label class="contact-form-check-area__item" for="check-02">ヒアリングのご予約</label>
+                    <input type="checkbox" id="check-03" name="check-03" value="資料請求" class="contact-form-check">
+                    <label class="contact-form-check-area__item" for="check-03">資料請求</label>
+                    <input type="checkbox" id="check-04" name="check-04" value="その他" class="contact-form-check">
+                    <label class="contact-form-check-area__item contact-form-check-area__item--bottom" for="check-04">その他</label>
+                </div>
+            </div>
+            <div class="contact-form__item">
+                <label class="contact-form__label">内　容</label>
+                <textarea name="" id="" cols="30" rows="10" class="contact-form__input contact-form__textarea" placeholder="内容に関する詳細や備考等をご入力ください。"></textarea>
+            </div>
+            <div class="contact-form__item contact-form__item--bottom">
+                <input type="submit" value="送 信" class="c-button c-button--main">
+            </div>
+        </form>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-box">
+        <nav class="footer-nav" aria-label="フッターナビゲーション">
+            <ul class="footer-nav-list">
+                <li class="footer-nav-list__item">
+                    <a href="./index.html" class="footer-nav-list__item-text">ホーム</a>
+                </li>
+                <li class="footer-nav-list__item">
+                    <a href="./plan.html" class="footer-nav-list__item-text">料金</a>
+                </li>
+                <li class="footer-nav-list__item">
+                    <a href="./blog-list.html" class="footer-nav-list__item-text">ブログ</a>
+                </li>
+                <li class="footer-nav-list__item">
+                    <a href="./result-list.html" class="footer-nav-list__item-text">卒業実績</a>
+                </li>
+            </ul>
+        </nav>
+        <a href="./index.html">
+            <p class="footer-logo"><img src="./images/common/logo-white.svg" alt="きたむらミュージックスクール"></p>
+        </a>
+        <p class="footer-copy">Copyright © 0000 KITAMURA music school Inc. All Rights</p>
+        <ul class="footer-sns-area">
+            <li class="footer-sns-area__item">
+                <a href="" target="_blank" rel="noopener noreferrer"><img src="./images/common/icon-twitter.svg" alt="twitterへのリンク(別タブで開きます)"></a>
+            </li>
+            <li class="footer-sns-area__item">
+                <a href="" target="_blank" rel="noopener noreferrer"><img src="./images/common/icon-facebook.svg" alt="facebookへのリンク(別タブで開きます)"></a>
+            </li>
+            <li class="footer-sns-area__item">
+                <a href="" target="_blank" rel="noopener noreferrer"><img src="./images/common/icon-youtube.svg" alt="youtubeへのリンク(別タブで開きます)"></a>
+            </li>
+            <li class="footer-sns-area__item">
+                <a href="" target="_blank" rel="noopener noreferrer"><img src="./images/common/icon-instagram.svg" alt="instagramへのリンク(別タブで開きます)"></a>
+            </li>
+        </ul>
+    </div> 
+</footer>
+
+</body>
+</html>

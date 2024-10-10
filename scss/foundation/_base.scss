@@ -1,0 +1,71 @@
+@use "./variable";
+
+html {
+    font-size: 10px;
+}
+body {
+    margin: 0;
+    font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+h1, h2, p {
+    margin: 0;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+a, button, input[type="submit"] {
+    transition: opacity 0.4s;
+    &:hover {
+        opacity: 0.6;
+    }
+}
+input[type="text"],input[type="email"],input[type="tel"],input[type="search"],input[type="image"],input[type="submit"],textarea {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+blockquote {
+    margin: 0;
+}
+.contact-form-check {
+    display: none;
+}
+.contact-form-check:checked + .contact-form-check-area__item::after {
+    opacity: 1;
+}
+.content-area {
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 70px 30px;
+    box-sizing: border-box;
+}
+.bg-red {
+    background: variable.$red;
+}
+
+@media screen and (min-width:768px) {
+.pc-none {
+    display: none;
+}
+}
+@media screen and (max-width:767px) {
+body {
+    margin-top: 50px;
+}
+.sp-none {
+    display: none;
+}
+.content-area {
+    width: calc(100% - 40px);
+    padding: 50px 0;
+}
+}

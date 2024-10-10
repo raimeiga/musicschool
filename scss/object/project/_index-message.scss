@@ -1,0 +1,27 @@
+.message {
+    .c-head-middle {
+        margin-bottom: 39px;
+    }
+    &-text {
+        font-size: 1.8rem;
+        color: #fff;
+        line-height: 1.6;
+        text-align: center;
+    }
+}
+.content-area--message {
+    padding-top: 60px;
+    padding-bottom: 66px;
+}
+
+@media screen and (max-width:767px) {
+    .message {
+        .c-head-middle {
+            margin-bottom: 21px;
+        }
+    }
+    .content-area--message {
+        padding-top: 42px;
+        padding-bottom: 46px;
+    }
+}

@@ -1,0 +1,168 @@
+@use "../../foundation/variable";
+
+.headline--plan {
+    background-image: url(../images/plan/headline-plan.png);
+    background-size: cover;
+    background-position: center;
+}
+.plan-structure {
+    &-table {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+        &__item {
+            display: inline-block;
+            width: 210px;
+            height: 60px;
+            background: variable.$red;
+            color: #fff;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            line-height: 3;
+        }
+        &__sign {
+            margin: 0 30px;
+        }
+    }
+    &-text {
+        font-size: 1.8rem;
+        line-height: 1.6;
+    }
+}
+.plan-table {
+    &-area {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    &-row {
+        height: 85px;
+        &__head {
+            height: 80px;
+            border-bottom: 0.5px solid #000;
+        }
+        &--gray {
+            background: rgba(80,80,80,0.15);
+        }
+        &--bottom {
+            border-bottom: 0.5px solid #000;
+        }
+    }
+    &__head {
+        font-size: 2rem;
+        font-weight: bold;
+        background: #000;
+        color: #fff;
+    }
+    &__def {
+        display: block;
+        margin-top: 30px;
+        line-height: 2.5;
+    }
+    &__recd {
+        background: variable.$red;
+        &-text {
+            font-size: 1.7rem;
+            display: block;
+            margin-bottom: 11px;
+        }
+    }
+    &__item {
+        font-size: 1.7rem;
+        font-weight: normal;
+        text-align: center;
+        border-left:0.5px solid #000;
+        &--top {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        &--red {
+            color: variable.$red;
+        }
+    }
+    &__chapter {
+        text-align: left;
+        padding-left: 20px;
+        font-size: 1.7rem;
+        font-weight: normal;
+    }
+    &-attention {
+        font-size: 1.7rem;
+    }
+}
+.content-area--plan-table {
+    padding: 0 30px 229px;
+}
+.head-lower--plan-table {
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width:767px) {
+    .plan-structure {
+        &-table {
+            display: block;
+            margin-bottom: 42px;
+            &__item {
+                display: block;
+                margin: 0 auto;
+            }
+            &__sign {
+                margin: 19px;
+                text-align: center;
+            }
+        }
+        &-text {
+            font-size: 1.6rem;
+            line-height: 1.88;
+        }
+    }
+    .plan-table {
+        &-wrap {
+            overflow-x: scroll;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+        &-area {
+            width: 670px;
+            margin-bottom: 17.5px;
+            cursor: default;
+        }
+        &__head {
+            line-height: 1.25;
+            padding: 10px 0;
+        }
+        &__def {
+            margin-top: 36px;
+        }
+        &__chapter {
+            width: 25%;
+            font-size: 1.6rem;
+            padding-left: 10px;
+        }
+        &__item {
+            width: 25%;
+        }
+        &-attention {
+            font-size: 1.6rem;
+            line-height: 1.88;
+        }
+        ::-webkit-scrollbar {
+            height: 25px;
+            background: rgba(80,80,80,0.15);
+        }
+        ::-webkit-scrollbar-thumb {
+            height: 23px;
+            background: rgba(80,80,80,0.25);
+        }
+    }
+    .content-area--plan-about {
+        padding: 50px 0 42px;
+    }
+    .content-area--plan-table {
+        padding: 0 0 190px;
+    }
+    .head-lower--plan-table {
+        margin-bottom: 6px;
+    }
+}

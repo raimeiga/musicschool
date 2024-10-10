@@ -1,0 +1,15 @@
+.headline--404 {
+    background-image: url(../images/404/headline-404.png);
+    background-size: cover;
+    background-position: center;
+}
+.content-area--404 {
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width:767px) {
+    .content-area--404 {
+        margin-bottom: 0;
+        padding: 40px 0 50px;
+    }
+}

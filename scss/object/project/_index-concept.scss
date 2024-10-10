@@ -1,0 +1,123 @@
+@use "../../foundation/variable";
+
+.concept {
+    &-head {
+        color: variable.$red;
+        font-size: 3.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+    &-text {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 44px;
+    }
+    &-img {
+        margin-bottom: 30px;
+    }
+    &-diagram {
+        &-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 38px;
+            &__pri {
+                width: 40%;
+                font-size: 2.5rem;
+                font-weight: bold;
+                color: variable.$red;
+                text-align: right;
+                text-transform: capitalize;
+            }
+            &__circle {
+                width: 20px;
+                height: 20px;
+                position: relative;
+                border-radius: 10px;
+                background-color: variable.$red;
+                margin: 0 30px;
+                &::before {
+                    content: '';
+                    height: 70px;
+                    width: 3px;
+                    position: absolute;
+                    bottom: 10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: variable.$red;
+                }
+                &--top {
+                    &::before {
+                        content: '';
+                        height: 50px;
+                        width: 3px;
+                        position: absolute;
+                        bottom: 10px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: variable.$red;
+                    }
+                    &::after {
+                        content: '';
+                        width: 15px;
+                        height: 15px;
+                        position: absolute;
+                        top: -40px;
+                        border: 3px solid;
+                        border-color:  transparent transparent variable.$red variable.$red;
+                        transform: rotate(135deg);
+                    }
+                }
+            }
+            &__sec {
+                width: 40%;
+                font-size: 2.3rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:767px) {
+    .concept {
+        &-head {
+            line-height: 1.5;
+            font-size: 2.5rem;
+            margin-bottom: 9px;
+        }
+        &-text {
+            margin-bottom: 26px;
+            line-height: 1.6;
+            letter-spacing: -0.02rem;
+            text-align: left;
+        }
+        &-img {
+            margin-bottom: 46px;
+        }
+        &-diagram {
+            &-row {
+                margin-bottom: 47px;
+                &__pri {         
+                    font-size: 2rem;
+                }
+                &__sec {
+                    font-size: 2rem;
+                }
+                &__circle {
+                    &--top {
+                        &::before {
+                            height: 48px;
+                        }
+                        &::after {
+                            top: -36px;
+                            left: -1px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .content-area--concept {
+        padding: 46px 0 48px;
+    }
+}

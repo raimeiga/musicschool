@@ -1,0 +1,116 @@
+@use "../../foundation/variable";
+
+.flow {
+    .c-head-middle {
+        margin-bottom: 56px;
+    }
+    &-diagram {
+        &-row {
+            margin-bottom: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &--bottom {
+                margin-bottom: 0;
+            }
+            &__circle {
+                width: 20px;
+                height: 20px;
+                position: relative;
+                border-radius: 50%;
+                background-color: variable.$red;
+                margin: 0 50px;
+                &::before {
+                    content: '';
+                    height: 160px;
+                    width: 3px;
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: variable.$red;
+                }
+                &--bottom {
+                    &::before {
+                        content: '';
+                        height: 61px;
+                        width: 3px;
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: variable.$red;
+                    }
+                    &::after {
+                        content: '';
+                        width: 15px;
+                        height: 15px;
+                        position: absolute;
+                        bottom: -40px;
+                        border: 3px solid;
+                        border-color:  transparent transparent variable.$red variable.$red;
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+            &__head {
+                width: 192px;
+                font-size: 2.2rem;
+                font-weight: bold;
+                color: variable.$red;
+            }
+            &__text {
+                width: 567px;
+                font-size: 1.8rem;
+                line-height: 1.6;
+            }
+        }
+    }
+}
+.content-area--flow {
+    padding-top: 48px;
+    padding-bottom: 66px;
+}
+
+@media screen and (max-width:767px) {
+    .flow {
+        .c-head-middle {
+            margin-bottom: 40px;
+        }
+        &-diagram {
+            &-row {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                align-items: flex-start;
+                margin-bottom: 43px;
+                &__circle {
+                    margin: 0 20px 0 8px;
+                    &::before {
+                        height: 220px;
+                    }
+                    &--bottom {
+                        &::before {
+                            height: 145px;
+                        }
+                        &::after {
+                            bottom: -126px;
+                        }
+                    }
+                }
+                &__head {
+                    margin-bottom: 14px;
+                }
+                &__text {
+                    width: 100%;
+                    margin-left: 48px;
+                    font-size: 1.6rem;
+                    line-height: 1.8;
+                }
+            }
+        }
+    }
+    .content-area--flow {
+        padding-top: 43px;
+        padding-bottom: 38px;
+    }
+}
