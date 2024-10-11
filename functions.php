@@ -1,14 +1,14 @@
 <?php
 //CSS読み込み
-function add_stylesheet() {
-  wp_enqueue_style (
-    'main', get_template_directory_uri().'/css/style.css', array()
-  );
+function add_stylesheet() {  
   wp_enqueue_style (
     'slick', get_template_directory_uri().'/slick/slick.css', array('main')
   );
   wp_enqueue_style (
     'slick-theme', get_template_directory_uri().'/slick/slick-theme.css', array('slick')
+  );
+  wp_enqueue_style (
+   'main', get_template_directory_uri().'/css/style.css', array()
   );
 }
 add_action('wp_enqueue_scripts', 'add_stylesheet');
@@ -27,3 +27,5 @@ function add_script() {
   );
 }
 add_action('wp_enqueue_scripts', 'add_script');
+
+add_theme_support('post-thumbnails');
