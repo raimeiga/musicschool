@@ -20,17 +20,23 @@
     </div>
 </div>
 
+<?php while ( have_posts() ): the_post(); ?>
 <section class="blog-details">
     <div class="content-area content-area--blog-details">
         <div class="c-col-main">
             <div class="c-col-main-body">
                 <div class="c-blog-block__img-area c-blog-block__img-area--detail-top">
-                    <p class="c-blog-block__img c-blog-block__img--detail-top"><img srcset="./images/top/blog01.png 1x, ./images/top/blog01@2x.png 2x" alt=""></p>
-                    <p class="c-blog-block__tag">ギター</p>
+                  <p class="c-blog-block__img c-blog-block__img--detail-top">
+                    <?php the_post_thumbnail('large'); ?>
+                  </p>
+                  <p class="c-blog-block__tag">
+                    <?php if( has_term('', 'blog_tag', $post->ID) ): $post_term = get_the_terms($post->ID, 'blog_tag'); 
+                    echo $post_term[0]->name; endif; ?>
+                  </p>
                 </div>
-                <div class="c-article-details-title-area c-article-details-title-area">
-                    <h1 class="c-article-details-title">アルペジオが劇的に向上する３つの習慣</h1>
-                    <p class="c-article-details-time"><time datetime="2022-01-01">0000.00.00</time></p>
+                <div class="c-article-details-title-area">
+                  <h1 class="c-article-details-title"><?php the_title(); ?></h1>
+                  <p class="c-article-details-time"><time datetime="the_time('Y-m-d')"><?php the_time('Y.m.d'); ?></time></p>
                 </div>
                 <div class="c-article-details-share">
                     <a href="" class="c-article-details-share__item c-article-details-share__item--facebook">
@@ -55,22 +61,7 @@
                     </a>
                 </div>
                 <div class="c-article-details-body">
-                    <p class="c-article-details-body__text">本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
-                    <h2 class="c-article-details-body__head-middle">H2見出しが入ります。H2見出しが入ります。</h2>
-                    <p class="c-article-details-body__text">本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
-                    <p class="c-article-details-body__img"><img srcset="./images/top/reason01.png 1x, ./images/top/reason01@2x.png 2x" alt=""></p>
-                    <ul class="c-article-details-body__list">
-                        <li class="c-article-details-body__list-item">リストが入ります</li>
-                        <li class="c-article-details-body__list-item">リストが入ります</li>
-                        <li class="c-article-details-body__list-item">リストが入ります</li>
-                    </ul>
-                    <hr class="c-article-details-body__border">
-                    <h3 class="c-article-details-body__head-small">H3見出しが入ります。H3見出しが入ります。</h3>
-                    <blockquote class="c-article-details-body__blockquote">
-                        <p class="c-article-details-body__blockquote-icon"><img src="./images/common/icon-blockquote.svg" alt="''"></p>
-                        <p class="c-article-details-body__blockquote-text">本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
-                    </blockquote>
-                    <a href="" class="c-article-details-body__link-text">テキストリンク</a>
+                  <?php the_content(); ?>
                 </div>
             </div>
             <div class="c-col-main--arrow">
@@ -134,6 +125,6 @@
         <?php get_sidebar(); ?>
     </div>
 </section>
-
+<?php endwhile; ?>
 
 <?php get_footer(); ?>
