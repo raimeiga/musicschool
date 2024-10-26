@@ -29,3 +29,14 @@ function add_script() {
 add_action('wp_enqueue_scripts', 'add_script');
 
 add_theme_support('post-thumbnails');
+
+
+
+
+
+
+function show_page_number() {
+ global $wp_query;
+ $paged = get_query_var('paged');
+ echo $paged;
+}
