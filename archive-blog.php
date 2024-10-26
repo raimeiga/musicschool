@@ -13,12 +13,17 @@
 </div>
 
 <div class="c-breadcrumbs">
+  <div class="c-breadcrumbs-text-area" typeof="BreadcrumbList" vocab="https://schema.org/">
+    <?php if(function_exists('bcn_display')) { bcn_display(); }?>
+  </div>
+</div>
+<!-- <div class="c-breadcrumbs">
     <div class="c-breadcrumbs-text-area">
         <a href="index.html" class="c-breadcrumbs-text">ホーム</a>
         <p class="c-breadcrumbs-sign">&#62;</p>
         <p class="c-breadcrumbs-text">ブログ</p>
     </div>
-</div>
+</div> -->
 
 <?php
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
