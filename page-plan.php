@@ -12,13 +12,11 @@
     <h1 class="c-headline-text">プラン・料金</h1>
 </div>
 
-<div class="c-breadcrumbs">
-    <div class="c-breadcrumbs-text-area">
-        <a href="./index.html" class="c-breadcrumbs-text">ホーム</a>
-        <p class="c-breadcrumbs-sign">&#62;</p>
-        <p class="c-breadcrumbs-text">プラン・料金</p>
-    </div>
-</div>
+<!-- パンくずリストの読み込み 8-6-4：【課題】プランページでパンくずリストをテンプレート化しよう　-->
+<?php get_template_part('template-parts/breadcrumbs'); ?>
+
+
+
 
 <section class="plan-structure">
     <div class="content-area">
