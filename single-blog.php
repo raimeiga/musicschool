@@ -8,17 +8,8 @@
 
 <a href="./contact-form.html" class="c-button c-button--bottom">お問い合わせ</a>
 
-<div class="c-breadcrumbs">
-    <div class="c-breadcrumbs-text-area">
-        <a href="index.html" class="c-breadcrumbs-text">ホーム</a>
-        <p class="c-breadcrumbs-sign">&#62;</p>
-        <a href="blog-list.html" class="c-breadcrumbs-text">ブログ</a>
-        <p class="c-breadcrumbs-sign">&#62;</p>
-        <a href="" class="c-breadcrumbs-text">ギター</a>
-        <p class="c-breadcrumbs-sign">&#62;</p>
-        <p class="c-breadcrumbs-text">アルペジオが劇的に向上する３つの習慣</p>
-    </div>
-</div>
+<!-- パンくずリストの読み込み 8-6-4：【課題】ブログ個別ページでパンくずリストをテンプレート化しよう　-->
+<?php get_template_part('template-parts/breadcrumbs'); ?>
 
 <?php while ( have_posts() ): the_post(); ?>
 <section class="blog-details">
