@@ -1421,7 +1421,7 @@ blockquote {
   width: 100%;
   text-align: center;
 }
-.c-pager__item {
+.c-pager .page-numbers {
   display: inline-block;
   width: 50px;
   height: 50px;
@@ -1435,18 +1435,19 @@ blockquote {
   margin-right: 10px;
   margin-bottom: 10px;
 }
-.c-pager__item--active {
+.c-pager :last-child {
+  margin-right: 0;
+}
+.c-pager .current {
   color: #fff;
   background: #000;
 }
-.c-pager__item--last {
-  margin-right: 0;
-}
-.c-pager__leader {
+.c-pager .dots {
   display: inline-block;
   font-size: 1.8rem;
   font-weight: bold;
   margin-right: 10px;
+  border: none;
 }
 
 .c-message-description {
