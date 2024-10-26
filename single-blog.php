@@ -76,8 +76,10 @@
                 </div>
             </div>
             
+            <!-- 前後記事のテンプレパーツ -->
             <?php get_template_part('template-parts/single-arrows-area', '', $args = array('image_area' => 'has', 'post_type' => 'blog')); ?>
-            
+           
+            <!-- 関連記事のテンプレパーツ -->
             <?php get_template_part('template-parts/single-related-area', '', $args = array('post_type' => 'blog')); ?>
 
         </div>
