@@ -6,10 +6,10 @@
     </p>
 </a>
 
-<!-- 問い合わせボタンの読み込み -->
+<!-- 問い合わせボタンのテンプレパーツの読み込み -->
 <?php get_template_part('template-parts/contact-button'); ?>
 
-<!-- パンくずリストの読み込み -->
+<!-- パンくずリストのテンプレパーツの読み込み -->
 <?php get_template_part('template-parts/breadcrumbs'); ?>
 
 <?php while ( have_posts() ): the_post(); ?>
@@ -60,10 +60,10 @@
           </div>
         </div>
 
-        <!-- 前後記事のテンプレパーツ -->
+        <!-- 前後記事のテンプレパーツ読み込み -->
         <?php get_template_part('template-parts/single-arrows-area', '', $args = array('image_area' => 'has', 'post_type' => 'result')); ?>
         
-        <!-- 関連記事のテンプレパーツ -->
+        <!-- 関連記事のテンプレパーツ読み込み -->
         <?php get_template_part('template-parts/single-related-area', '', $args = array('post_type' => 'result')); ?>
       
     </div>
