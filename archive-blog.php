@@ -70,20 +70,10 @@ $the_query = new WP_Query($args);
                 <p class="c-blog-block__text">本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
             </div>
         </a>        -->
-
-
-    </div>
-    <div class="content-area content-area-blog-pager">
-      <div class="c-pager">
-        <?php
-        echo paginate_links(array(
-          'prev_next' => false,
-          'total' => $the_query->max_num_pages,
-          'current' => max( 1, get_query_var('paged') )
-        ));
-        ?>
-      </div>
-    </div>
+    </div>   
 </section>
+
+<!-- ページャー読み込み -->
+<?php get_template_part('template-parts/pager', '', $the_query); ?>
 
 <?php get_footer(); ?>
