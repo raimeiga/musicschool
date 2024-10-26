@@ -31,12 +31,16 @@ add_action('wp_enqueue_scripts', 'add_script');
 add_theme_support('post-thumbnails');
 
 
-
-
-
-
 function show_page_number() {
  global $wp_query;
  $paged = get_query_var('paged');
  echo $paged;
 }
+
+
+//管理画面で 投稿メニュー を非表示
+function remove_menus () {
+ global $menu;
+ remove_menu_page( 'edit.php' );
+}
+add_action('admin_menu', 'remove_menus');
