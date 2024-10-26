@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php  get_header(); ?>
 
 <a href="#" class="c-arrow">
     <p class="c-arrow__img">
@@ -20,10 +20,46 @@
     </div>
 </div>
 
+<?php
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+$args = array(
+  'paged' => $paged,
+  'post_type' => 'blog',
+  'orderby' => 'date',
+  'order' => 'DESC'
+);
+$the_query = new WP_Query($args);
+?>
+
 <section class="blog-list">
     <div class="content-area">
         <h2 class="c-head-lower">ブログ一覧</h2>
-        <a href="./blog-details.html" class="c-blog-block c-blog-block--list">
+        
+        <?php //追加 ?>
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+            <a href="<?php the_permalink(); ?>" class="c-blog-block c-blog-block--list">
+            <div class="c-blog-block__img-area c-blog-block__img-area--list">
+              <p class="c-blog-block__img c-blog-block__img--list">
+                <?php if (has_post_thumbnail()) {
+                     the_post_thumbnail('custom-size'); // 'custom-size'はカスタムサイズ
+                 }
+                ?>
+               </p>
+              <p class="c-blog-block__tag">
+                <?php if( has_term('', 'blog_tag', $post->ID) ): $post_term = get_the_terms($post->ID, 'blog_tag'); 
+                  echo $post_term[0]->name; endif; ?>
+              </p>
+            </div>
+            <div class="c-blog-block__text-area">
+                <p class="c-blog-block__title c-blog-block__title--list"><?php the_title(); ?></p>
+                <p class="c-blog-block__date c-blog-block__date--list"><time><?php the_time('Y.m.d'); ?></time></p>
+                <p class="c-blog-block__text">本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
+             </div>
+            </a>
+         <?php endwhile; endif; ?>
+
+        <!-- 最初に書かれいた２つ分の記事を残しておこう -->
+        <!-- <a href="./blog-details.html" class="c-blog-block c-blog-block--list">
             <div class="c-blog-block__img-area c-blog-block__img-area--list">
                 <p class="c-blog-block__img c-blog-block__img--list"><img srcset="./images/top/blog01.png 1x, ./images/top/blog01@2x.png 2x" alt=""></p>
                 <p class="c-blog-block__tag">ギター</p>
@@ -33,115 +69,20 @@
                 <p class="c-blog-block__date c-blog-block__date--list"><time datetime="2022-01-01">0000.00.00</time></p>
                 <p class="c-blog-block__text">本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
             </div>
-        </a>
-        <a href="./blog-details.html" class="c-blog-block c-blog-block--list">
-            <div class="c-blog-block__img-area c-blog-block__img-area--list">
-                <p class="c-blog-block__img c-blog-block__img--list"><img srcset="./images/top/blog02.png 1x, ./images/top/blog02@2x.png 2x" alt=""></p>
-                <p class="c-blog-block__tag">集客方法</p>
-            </div>
-            <div class="c-blog-block__text-area">
-                <p class="c-blog-block__title c-blog-block__title--list">集客してる間は売れないという法則</p>
-                <p class="c-blog-block__date c-blog-block__date--list"><time datetime="2022-01-01">0000.00.00</time></p>
-                <p class="c-blog-block__text">本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
-            </div>
-        </a>
-        <a href="./blog-details.html" class="c-blog-block c-blog-block--list">
-            <div class="c-blog-block__img-area c-blog-block__img-area--list">
-                <p class="c-blog-block__img c-blog-block__img--list"><img srcset="./images/top/blog03.png 1x, ./images/top/blog03@2x.png 2x" alt=""></p>
-                <p class="c-blog-block__tag">SNS</p>
-            </div>
-            <div class="c-blog-block__text-area">
-                <p class="c-blog-block__title c-blog-block__title--list">フォロワーではなくファンを増やせとは？</p>
-                <p class="c-blog-block__date c-blog-block__date--list"><time datetime="2022-01-01">0000.00.00</time></p>
-                <p class="c-blog-block__text">本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
-            </div>
-        </a>
-        <a href="./blog-details.html" class="c-blog-block c-blog-block--list">
-            <div class="c-blog-block__img-area c-blog-block__img-area--list">
-                <p class="c-blog-block__img c-blog-block__img--list"><img srcset="./images/top/blog01.png 1x, ./images/top/blog01@2x.png 2x" alt=""></p>
-                <p class="c-blog-block__tag">ギター</p>
-            </div>
-            <div class="c-blog-block__text-area">
-                <p class="c-blog-block__title c-blog-block__title--list">アルペジオが劇的に向上する3つの習慣</p>
-                <p class="c-blog-block__date c-blog-block__date--list"><time datetime="2022-01-01">0000.00.00</time></p>
-                <p class="c-blog-block__text">本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
-            </div>
-        </a>
-        <a href="./blog-details.html" class="c-blog-block c-blog-block--list">
-            <div class="c-blog-block__img-area c-blog-block__img-area--list">
-                <p class="c-blog-block__img c-blog-block__img--list"><img srcset="./images/top/blog02.png 1x, ./images/top/blog02@2x.png 2x" alt=""></p>
-                <p class="c-blog-block__tag">集客方法</p>
-            </div>
-            <div class="c-blog-block__text-area">
-                <p class="c-blog-block__title c-blog-block__title--list">集客してる間は売れないという法則</p>
-                <p class="c-blog-block__date c-blog-block__date--list"><time datetime="2022-01-01">0000.00.00</time></p>
-                <p class="c-blog-block__text">本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
-            </div>
-        </a>
-        <a href="./blog-details.html" class="c-blog-block c-blog-block--list">
-            <div class="c-blog-block__img-area c-blog-block__img-area--list">
-                <p class="c-blog-block__img c-blog-block__img--list"><img srcset="./images/top/blog03.png 1x, ./images/top/blog03@2x.png 2x" alt=""></p>
-                <p class="c-blog-block__tag">SNS</p>
-            </div>
-            <div class="c-blog-block__text-area">
-                <p class="c-blog-block__title c-blog-block__title--list">フォロワーではなくファンを増やせとは？</p>
-                <p class="c-blog-block__date c-blog-block__date--list"><time datetime="2022-01-01">0000.00.00</time></p>
-                <p class="c-blog-block__text">本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
-            </div>
-        </a>
-        <a href="./blog-details.html" class="c-blog-block c-blog-block--list">
-            <div class="c-blog-block__img-area c-blog-block__img-area--list">
-                <p class="c-blog-block__img c-blog-block__img--list"><img srcset="./images/top/blog01.png 1x, ./images/top/blog01@2x.png 2x" alt=""></p>
-                <p class="c-blog-block__tag">ギター</p>
-            </div>
-            <div class="c-blog-block__text-area">
-                <p class="c-blog-block__title c-blog-block__title--list">アルペジオが劇的に向上する3つの習慣</p>
-                <p class="c-blog-block__date c-blog-block__date--list"><time datetime="2022-01-01">0000.00.00</time></p>
-                <p class="c-blog-block__text">本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
-            </div>
-        </a>
-        <a href="./blog-details.html" class="c-blog-block c-blog-block--list">
-            <div class="c-blog-block__img-area c-blog-block__img-area--list">
-                <p class="c-blog-block__img c-blog-block__img--list"><img srcset="./images/top/blog02.png 1x, ./images/top/blog02@2x.png 2x" alt=""></p>
-                <p class="c-blog-block__tag">集客方法</p>
-            </div>
-            <div class="c-blog-block__text-area">
-                <p class="c-blog-block__title c-blog-block__title--list">集客してる間は売れないという法則</p>
-                <p class="c-blog-block__date c-blog-block__date--list"><time datetime="2022-01-01">0000.00.00</time></p>
-                <p class="c-blog-block__text">本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
-            </div>
-        </a>
-        <a href="./blog-details.html" class="c-blog-block c-blog-block--list">
-            <div class="c-blog-block__img-area c-blog-block__img-area--list">
-                <p class="c-blog-block__img c-blog-block__img--list"><img srcset="./images/top/blog03.png 1x, ./images/top/blog03@2x.png 2x" alt=""></p>
-                <p class="c-blog-block__tag">SNS</p>
-            </div>
-            <div class="c-blog-block__text-area">
-                <p class="c-blog-block__title c-blog-block__title--list">フォロワーではなくファンを増やせとは？</p>
-                <p class="c-blog-block__date c-blog-block__date--list"><time datetime="2022-01-01">0000.00.00</time></p>
-                <p class="c-blog-block__text">本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
-            </div>
-        </a>
-        <a href="./blog-details.html" class="c-blog-block c-blog-block--list u-item-bottom">
-            <div class="c-blog-block__img-area c-blog-block__img-area--list">
-                <p class="c-blog-block__img c-blog-block__img--list"><img srcset="./images/top/blog01.png 1x, ./images/top/blog01@2x.png 2x" alt=""></p>
-                <p class="c-blog-block__tag">ギター</p>
-            </div>
-            <div class="c-blog-block__text-area">
-                <p class="c-blog-block__title c-blog-block__title--list">アルペジオが劇的に向上する3つの習慣</p>
-                <p class="c-blog-block__date c-blog-block__date--list"><time datetime="2022-01-01">0000.00.00</time></p>
-                <p class="c-blog-block__text">本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
-            </div>
-        </a>
+        </a>        -->
+
+
     </div>
     <div class="content-area content-area-blog-pager">
-        <div class="c-pager">
-            <a href="" class="c-pager__item c-pager__item--active">1</a>
-            <a href="" class="c-pager__item">2</a>
-            <a href="" class="c-pager__item">3</a>
-            <p class="c-pager__leader">⋯</p>
-            <a href="" class="c-pager__item c-pager__item--last">9</a>
-        </div>
+      <div class="c-pager">
+        <?php
+        echo paginate_links(array(
+          'prev_next' => false,
+          'total' => $the_query->max_num_pages,
+          'current' => max( 1, get_query_var('paged') )
+        ));
+        ?>
+      </div>
     </div>
 </section>
 
