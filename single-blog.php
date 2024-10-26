@@ -6,7 +6,8 @@
     </p>
 </a>
 
-<a href="./contact-form.html" class="c-button c-button--bottom">お問い合わせ</a>
+<!-- 問い合わせボタンの読み込み -->
+<?php get_template_part('template-parts/contact-button'); ?>
 
 <!-- パンくずリストの読み込み 8-6-4：【課題】ブログ個別ページでパンくずリストをテンプレート化しよう　-->
 <?php get_template_part('template-parts/breadcrumbs'); ?>

@@ -6,6 +6,7 @@
     </p>
 </a>
 
+<!-- 問い合わせボタンの読み込み -->
 <?php get_template_part('template-parts/contact-button'); ?>
 
 <div class="c-headline headline--blog-list">
