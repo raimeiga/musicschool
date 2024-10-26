@@ -19,10 +19,21 @@
 
 
 <section class="result-list">
+  <!-- ページャー -->
+  <?php
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    $args = array(
+      'paged' => $paged,
+      'post_type' => 'result',
+      'orderby' => 'date',
+      'order' => 'DESC'
+    );
+    $the_query = new WP_Query($args);
+  ?>
     <div class="content-area content-area-result-list">
       <h2 class="c-head-lower">卒業実績一覧</h2>
       <div class="result-list__row-wrap">
-        <?php //追加 ?>
+        <!-- 記事の取得 -->
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
           <a href="<?php the_permalink(); ?>" class="c-result-block c-result-block--list">
             <div class="c-result-block__img-area c-result-block__img-area--list">
@@ -42,8 +53,8 @@
               <p class="c-result-block__date c-result-block__date--list"><time><?php the_time('Y.m.d'); ?></time></p>
             </div>
             </a>            
-        <?php endwhile; endif; ?>
-        
+        <?php endwhile; endif; ?>   
+        <!-- 最初に書かれていた記事を残しておこう -->     
         <!-- <div class="result-list__row">
             <a href="./result-details.html" class="c-result-block c-result-block--list">
                 <div class="c-result-block__img-area c-result-block__img-area--list">
@@ -156,15 +167,8 @@
         </div> -->
       </div>
     </div>
-    <div class="content-area content-area-result-pager">
-        <div class="c-pager">
-            <a href="" class="c-pager__item c-pager__item--active">1</a>
-            <a href="" class="c-pager__item">2</a>
-            <a href="" class="c-pager__item">3</a>
-            <p class="c-pager__leader">⋯</p>
-            <a href="" class="c-pager__item c-pager__item--last">9</a>
-        </div>
-    </div>
+    <!-- ページャー読み込み -->
+    <?php get_template_part('template-parts/pager', '', $the_query); ?>
 </section>
 
 <!-- フッターのテンプレパーツの読み込み -->
