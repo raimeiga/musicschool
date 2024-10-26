@@ -16,22 +16,22 @@
 <!-- パンくずリストの読み込み 8-6-3：【課題】パンくずリストをテンプレート化しよう　-->
 <?php get_template_part('template-parts/breadcrumbs'); ?>
 
-<?php
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$args = array(
-  'paged' => $paged,
-  'post_type' => 'blog',
-  'orderby' => 'date',
-  'order' => 'DESC'
-);
-$the_query = new WP_Query($args);
-?>
-
 <section class="blog-list">
+  <!-- ページャー -->
+  <?php
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    $args = array(
+      'paged' => $paged,
+      'post_type' => 'blog',
+      'orderby' => 'date',
+      'order' => 'DESC'
+    );
+    $the_query = new WP_Query($args);
+  ?>
     <div class="content-area">
         <h2 class="c-head-lower">ブログ一覧</h2>
-        
-        <?php //追加 ?>
+
+        <!-- 記事の取得 -->
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
             <a href="<?php the_permalink(); ?>" class="c-blog-block c-blog-block--list">
             <div class="c-blog-block__img-area c-blog-block__img-area--list">
@@ -66,10 +66,10 @@ $the_query = new WP_Query($args);
                 <p class="c-blog-block__text">本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
             </div>
         </a>        -->
-    </div>   
+    </div> 
+    <!-- ページャー読み込み -->
+    <?php get_template_part('template-parts/pager', '', $the_query); ?>
 </section>
 
-<!-- ページャー読み込み -->
-<?php get_template_part('template-parts/pager', '', $the_query); ?>
 
 <?php get_footer(); ?>
