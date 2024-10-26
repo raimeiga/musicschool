@@ -7,13 +7,19 @@
     padding: 0 0 210px;
 }
 .result-list {
-    &__row {
-        display: flex;
-        justify-content: space-between;
-        .c-result-block:first-child {
-            margin-right: 20px;
-        }
+    &__row-wrap {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+        gap: 61px 12%;
+        // padding-block: 38px 61px;
     }
+    // &__row {
+    //     display: flex;
+    //     justify-content: space-between;
+    //     .c-result-block:first-child {
+    //         margin-right: 20px;
+    //     }
+    // }
 }
 
 @media screen and (max-width:767px) {
