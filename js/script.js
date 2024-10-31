@@ -66,3 +66,10 @@ $(function(){
         $footer.attr({'style': 'position:fixed; width:100%; top:' + (window.innerHeight - $footer.outerHeight()) + 'px;' });
     }
 })
+
+//お問い合わせ チェックボックス
+$(function(){
+ $('input[name="your-subject[]"]').change(function(){
+     $(this).parent().toggleClass('checked');
+ });
+});
