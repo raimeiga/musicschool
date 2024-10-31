@@ -2793,16 +2793,16 @@ blockquote {
   opacity: 0;
   position: absolute;
 }
-.contact-form .wpcf7-spinner {
-  width: 0;
-  margin: 0;
-}
-.contact-form .wpcf7-not-valid-tip {
+.contact-form .wpcf7-form-control-wrap .wpcf7-not-valid-tip {
   width: 80%;
   margin-left: auto;
   padding-top: 6px;
   text-align: left;
   color: rgb(203, 0, 0);
+}
+.contact-form .wpcf7-spinner {
+  width: 0;
+  margin: 0;
 }
 .contact-form .wpcf7 form.invalid .wpcf7-response-output {
   border: none;
