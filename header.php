@@ -22,18 +22,12 @@
         <p class="header-logo sp-none"><img src="<?php echo get_template_directory_uri(); ?>/images/common/logo.svg" alt="きたむらミュージックスクール"></p>
         <p class="header-logo pc-none"><img src="<?php echo get_template_directory_uri(); ?>/images/common/logo-sp.svg" alt="きたむらミュージックスクール"></p>
     </a>
-    <nav class="header-nav" aria-label="ヘッダーナビゲーション">
-        <ul class="header-nav-list">
-            <li class="header-nav-list__item">
-                <a href="<?php echo get_template_directory_uri(); ?>/plan.html" class="header-nav-list__item-text">料金</a>
-            </li>
-            <li class="header-nav-list__item">
-                <a href="<?php echo get_template_directory_uri(); ?>/blog-list.html" class="header-nav-list__item-text">ブログ</a>
-            </li>
-            <li class="header-nav-list__item">
-                <a href="<?php echo get_template_directory_uri(); ?>/result-list.html" class="header-nav-list__item-text">卒業実績</a>
-            </li>
-        </ul>
-        <a href="<?php echo get_template_directory_uri(); ?>/contact-form.html" class="c-button c-button--head">お問い合わせ</a>
-    </nav>
+    <?php
+     wp_nav_menu(array(
+     'menu' => 'header',
+     'menu_class' => 'header-nav-list',
+     'container' => 'nav',
+     'container_class' => 'header-nav'
+     ));
+    ?>
 </header>
