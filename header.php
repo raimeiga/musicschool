@@ -22,6 +22,7 @@
         <p class="header-logo sp-none"><img src="<?php echo get_template_directory_uri(); ?>/images/common/logo.svg" alt="きたむらミュージックスクール"></p>
         <p class="header-logo pc-none"><img src="<?php echo get_template_directory_uri(); ?>/images/common/logo-sp.svg" alt="きたむらミュージックスクール"></p>
     </a>
+    <nav class="header-nav" aria-label="ヘッダーナビゲーション">
     <?php
      wp_nav_menu(array(
      'menu' => 'header',
@@ -29,5 +30,6 @@
      'container' => 'nav',
      'container_class' => 'header-nav'
      ));
-    ?>
+     ?>
+    </nav>
 </header>
