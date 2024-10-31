@@ -1,4 +1,7 @@
 $(function(){
+
+ $('#menu-item-201').addClass('c-button c-button--head');
+
     //TOP スライダー
     $('.slider').slick({
         infinite: true,
