@@ -18,7 +18,7 @@
     <button class="header-nav-open">
         <span class="header-nav-open-border"></span>
     </button>
-    <a href="<?php echo get_template_directory_uri(); ?>/index.html">
+    <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
         <p class="header-logo sp-none"><img src="<?php echo get_template_directory_uri(); ?>/images/common/logo.svg" alt="きたむらミュージックスクール"></p>
         <p class="header-logo pc-none"><img src="<?php echo get_template_directory_uri(); ?>/images/common/logo-sp.svg" alt="きたむらミュージックスクール"></p>
     </a>

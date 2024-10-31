@@ -11,7 +11,7 @@
           ));
           ?>
         </nav>
-        <a href="<?php echo get_template_directory_uri(); ?>/index.html">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
             <p class="footer-logo"><img src="<?php echo get_template_directory_uri(); ?>/images/common/logo-white.svg" alt="きたむらミュージックスクール"></p>
         </a>
         <p class="footer-copy">Copyright © 0000 KITAMURA music school Inc. All Rights</p>
