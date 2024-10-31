@@ -2,13 +2,13 @@
 <footer class="footer">
     <div class="footer-box">
         <nav class="footer-nav" aria-label="フッターナビゲーション">
-          <?php
-            wp_nav_menu(array(
-              'menu' => 'footer',
-              'menu_class' => 'footer-nav-list',
-              'container' => 'nav',
-              'container_class' => 'footer-nav'
-            ));
+        <?php
+          wp_nav_menu(array(
+            'menu' => 'footer',
+            'menu_class' => 'footer-nav-list',
+            'container' => 'nav',
+            'container_class' => 'footer-nav'
+          ));
           ?>
         </nav>
         <a href="<?php echo get_template_directory_uri(); ?>/index.html">
