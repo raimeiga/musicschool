@@ -68,7 +68,7 @@ $(function(){
         console.log($footer.offset().top);
         $footer.attr({'style': 'position:fixed; width:100%; top:' + (window.innerHeight - $footer.outerHeight()) + 'px;' });
     }
-})
+});
 
 //お問い合わせ チェックボックス
 $(function(){
