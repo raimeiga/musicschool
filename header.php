@@ -8,11 +8,9 @@
     <meta name="description" content="「音楽で生きる」を叶える ミュージックスクール「きたむらミュージックスクール」の公式ホームページです。">
     
     <?php wp_head(); ?>
-   </head>
-<body>
+</head>
 
-
-
+<body style="display: none;">
 
 <header class="header">
     <button class="header-nav-open">

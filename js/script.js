@@ -1,3 +1,7 @@
+$(function() {
+ $('body').show();
+});
+
 $(function(){
 
  $('#menu-item-201').addClass('c-button c-button--head');
