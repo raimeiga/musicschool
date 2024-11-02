@@ -78,53 +78,46 @@
 </section>
 
 <section id="voice" class="voice bg-red">
-    <div class="content-area content-area--voice">
-        <h2 class="c-head-middle c-head-middle--white">生徒さんたちの声</h2>
-        <div class="voice-flex-area slider">
-            <div class="voice-block">
-                <a href="<?php echo get_template_directory_uri(); ?>/result-details.html" class="voice-block__anchor">
-                    <p class="voice-block__img"><img srcset="<?php echo get_template_directory_uri(); ?>/images/top/voice01.png 1x, <?php echo get_template_directory_uri(); ?>/images/top/voice01@2x.png 2x" alt=""></p>
-                    <p class="voice-block__head">証券会社勤務&emsp;丸山さん</p>
-                    <p class="voice-block__text">昔やっていた音楽活動で、副収入が得られるようになったので、毎日充実するようになりました。</p>
-                </a>
-            </div>
-            <div class="voice-block">
-                <a href="<?php echo get_template_directory_uri(); ?>/result-details.html" class="voice-block__anchor">
-                    <p class="voice-block__img"><img srcset="<?php echo get_template_directory_uri(); ?>/images/top/voice02.png 1x, <?php echo get_template_directory_uri(); ?>/images/top/voice02@2x.png 2x" alt=""></p>
-                    <p class="voice-block__head">IT会社勤務&emsp;S.Eさん</p>
-                    <p class="voice-block__text">プロの指導が受けられるので、技術が確実に上がるし、音楽への考え方とかも勉強できて最高です。</p>
-                </a>
-            </div>
-            <div class="voice-block">
-                <a href="<?php echo get_template_directory_uri(); ?>/result-details.html" class="voice-block__anchor">
-                    <p class="voice-block__img"><img srcset="<?php echo get_template_directory_uri(); ?>/images/top/voice03.png 1x, <?php echo get_template_directory_uri(); ?>/images/top/voice03@2x.png 2x" alt=""></p>
-                    <p class="voice-block__head">都内大学生&emsp;田森さん</p>
-                    <p class="voice-block__text">就職する前にビジネスの事が学べるし、好きな音楽で稼げるようになったので選択肢が増えました。</p>
-                </a>
-            </div>
-            <div class="voice-block">
-                <a href="<?php echo get_template_directory_uri(); ?>/result-details.html" class="voice-block__anchor">
-                    <p class="voice-block__img"><img srcset="<?php echo get_template_directory_uri(); ?>/images/top/voice04.png 1x, <?php echo get_template_directory_uri(); ?>/images/top/voice04@2x.png 2x" alt=""></p>
-                    <p class="voice-block__head">専業主婦&emsp;井上さん</p>
-                    <p class="voice-block__text">元々は趣味で始めたギターですが、教室に通った1年間で自分でも驚くほど上達しました。</p>
-                </a>
-            </div>
-            <div class="voice-block">
-                <a href="<?php echo get_template_directory_uri(); ?>/result-details.html" class="voice-block__anchor">
-                    <p class="voice-block__img"><img srcset="<?php echo get_template_directory_uri(); ?>/images/top/voice05.png 1x, <?php echo get_template_directory_uri(); ?>/images/top/voice05@2x.png 2x" alt=""></p>
-                    <p class="voice-block__head">都内勤務&emsp;HITOMIさん</p>
-                    <p class="voice-block__text">ほとんど素人だった私にも分かりやすいレッスン内容で、楽しく通うことができました！</p>
-                </a>
-            </div>
-            <div class="voice-block">
-                <a href="<?php echo get_template_directory_uri(); ?>/result-details.html" class="voice-block__anchor">
-                    <p class="voice-block__img"><img srcset="<?php echo get_template_directory_uri(); ?>/images/top/voice06.png 1x, <?php echo get_template_directory_uri(); ?>/images/top/voice06@2x.png 2x" alt=""></p>
-                    <p class="voice-block__head">フリーランス&emsp;T.Iさん</p>
-                    <p class="voice-block__text">スケジュールが不規則なため、練習ROOMをいつでも使用できとても助かりました。</p>
-                </a>
-            </div>
-        </div>
+  <div class="content-area content-area--voice">
+    <h2 class="c-head-middle c-head-middle--white">生徒さんたちの声</h2>
+    <?php
+    $args = array(
+        'posts_per_page' => 6,
+        'post_type' => 'result',
+        'orderby' => 'date',
+        'order' => 'DESC'
+    );
+    $the_query = new WP_Query($args);
+    ?>
+    <div class="voice-flex-area slider">
+      <?php if($the_query->have_posts()) :
+      while($the_query->have_posts()) : $the_query->the_post(); ?>
+      <div class="voice-block">
+        <a href="<?php echo get_permalink($post->ID); ?>" class="voice-block__anchor">
+          <p class="voice-block__img">
+          <?php
+          $thumbnail_id = get_post_thumbnail_id($post->ID);
+          $thumb_url = wp_get_attachment_image_src($thumbnail_id, 'small');
+          if (get_post_thumbnail_id($post->ID)):
+          ?>
+          <img src="<?php echo $thumb_url[0] ?>" alt="">
+          <?php endif; ?>
+          </p>
+          <p class="voice-block__head">
+            <?php echo get_post_meta(get_the_ID(), '職業', true); ?>
+             <?php echo get_post_meta(get_the_ID(), '名前', true); ?>さん
+          </p>
+          <p class="voice-block__text">
+            <?php if(mb_strlen(get_the_excerpt())>26) 
+            {$title= mb_substr(get_the_excerpt(),0,26); echo $title . '...';} 
+            else {echo mb_substr(get_the_excerpt(),0,26);} ?>
+          </p>
+        </a>
+      </div>
+      <?php endwhile; ?>
+      <?php endif; ?>
     </div>
+  </div>
 </section>
 
 <section id="flow" class="flow">
