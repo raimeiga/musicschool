@@ -7,10 +7,7 @@
             </div>
             <div class="c-blog-section c-blog-section--border">
                 <p class="c-blog-section-name c-blog-section-name--side">ブログ内を検索</p>
-                <form action="./search.html" class="c-blog-section__form">
-                    <input type="search" class="c-blog-section__form-input">
-                    <input type="image" src="./images/common/icon-search.svg" class="c-blog-section__form-submit">
-                </form>
+                <?php get_search_form(); ?>
             </div>
             <div class="c-blog-section">
               <p class="c-blog-section-name c-blog-section-name--side">おすすめの記事</p>
