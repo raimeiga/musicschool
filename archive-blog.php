@@ -49,7 +49,7 @@
             <div class="c-blog-block__text-area">
                 <p class="c-blog-block__title c-blog-block__title--list"><?php the_title(); ?></p>
                 <p class="c-blog-block__date c-blog-block__date--list"><time><?php the_time('Y.m.d'); ?></time></p>
-                <p class="c-blog-block__text">本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。本文が入ります。</p>
+                <p class="c-blog-block__text"><?php echo get_the_excerpt(); ?></p>
              </div>
             </a>
          <?php endwhile; endif; ?>
