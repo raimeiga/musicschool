@@ -3,7 +3,7 @@
 
 <a href="#" class="c-arrow">
     <p class="c-arrow__img">
-        <img src="./images/common/arrow-t.svg" alt="△">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/common/arrow-t.svg" alt="△">
     </p>
 </a>
 
