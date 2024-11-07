@@ -43,20 +43,29 @@
     <?php endif; ?>
   <!-- アーカイブページ -->
   <?php elseif(is_archive()): ?>
-    <?php if(!is_paged()): ?>
-    <?php
-    $cat_id = get_queried_object()->cat_ID;
-    $post_id = 'category_'.$cat_id;
-    ?>
-    <title><?php single_cat_title( '', true ); ?> | きたむらミュージックスクール</title>
-    <meta name="description" content="きたむらミュージックスクール公式ホームページの
-    <?php single_cat_title( '', true ); ?>カテゴリアーカイブページです。">
-    <?php else: ?>
-    <title><?php single_cat_title( '', true ); ?>カテゴリアーカイブ 
-    <?php show_page_number(''); ?>ページ目  | きたむらミュージックスクール</title>
-    <meta name="description" content="きたむらミュージックスクール公式ホームページの
-    <?php single_cat_title( '', true ); ?>カテゴリアーカイブ <?php show_page_number(''); ?>ページ目です。">
-    <?php endif; ?>
+      <?php if(!is_paged()): ?>
+          <?php
+          // タクソノミーが blog_tag か result_tag かを確認する
+          if (is_tax('blog_tag')) {
+              $term = get_queried_object();
+              $title = $term->name; // タクソノミーの名前を取得
+          } elseif (is_tax('result_tag')) {
+              $term = get_queried_object();
+              $title = $term->name; // タクソノミーの名前を取得
+          } else {
+              $title = single_term_title('', false); // デフォルトのタイトル取得
+          }
+          ?>
+          <title><?php echo esc_html($title); ?> | きたむらミュージックスクール</title>
+          <meta name="description" content="きたむらミュージックスクール公式ホームページの
+          <?php echo esc_html($title); ?>タクソノミーアーカイブページです。">
+      <?php else: ?>
+          <title><?php echo esc_html($title); ?>タクソノミーアーカイブ 
+          <?php show_page_number(''); ?>ページ目  | きたむらミュージックスクール</title>
+          <meta name="description" content="きたむらミュージックスクール公式ホームページの
+          <?php echo esc_html($title); ?>タクソノミーアーカイブ <?php show_page_number(''); ?>ページ目です。">
+      <?php endif; ?>
+
   <!-- 検索結果ページ -->
   <?php elseif(is_search()): ?>
     <title>検索結果 | きたむらミュージックスクール</title>
